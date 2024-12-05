@@ -549,10 +549,15 @@ function fetchOrders() {
                     const itemTotalPrice = item.price * item.quantity;
                     totalOrderPrice += itemTotalPrice;
 
+                    // If item.image is missing or empty, use fbImage (fallback)
+                    const baseUrl = "http://localhost:8000/assets/";
+                    // Check if item.image is already a full URL
+                    const itemImage = item.image && item.image.startsWith('http') ? item.image : item.image ? baseUrl + item.image : item.fbImage;
+
                     cartHtml += `
                         <div class="purchase-item">
                             <div class="purchase-product">
-                                <img src="${item.image}" alt="${item.name}" class="product-image">
+                                <img src="${itemImage}" alt="${item.name}" class="product-image">
                                 <p class="product-name">${item.name}<br><span class="price">x${item.quantity}</span></p>
                             </div>
                             <div class="subtotal">
@@ -604,6 +609,7 @@ function fetchOrders() {
 setInterval(fetchOrders, 5000);
 window.addEventListener('load', fetchOrders);
 </script>
+
 
 </body>
 </html>

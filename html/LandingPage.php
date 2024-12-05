@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 require '../connection/connection.php';
@@ -303,257 +303,8 @@ $name = $_SESSION['name'];
             <a href="../html/PopularProductPage.php" class="product_link">View All</a>
         </article>
 
-        <div class="products_container">
-            <article class="products">
-                <a href="../html/ProductsDetailsPage/Wheelchair-Details.php">
-                    <div class="products_item">
-                        <img src="../assets/standard-wheelchair.png" alt="Wheelchair" class="products_image">
-                    </div>
-                </a>
-                <div class="wrap">
-                    <h1 class="products_details">
-                        809 Standard <br> 
-                        Wheelchair
-                    </h1>
-                    <p class="products_price">
-                        ₱ 4,000
-                    </p>
-                      <!-- nasa button ang product data nila -->
-                      <!-- note: unique dapat ang product id 
-                                para hindi na re-retrieve ang same
-                                product kapag nag add to cart 
-                      -->
-                    <button class="add-to-cart" 
-                            data-product-id="1" 
-                            data-product-name="809 Standard Wheelchair" 
-                            data-product-price="4000">
-                      <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                      Add to Cart
-                    </button>
-                </div>
-            </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/BloodMonitor.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/wrist_blood.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">Wrist Blood <br> Pressure Monitor</h1>
-              <p class="products_price">₱ 2,313</p>
-                  <!-- nasa button ang product data nila -->
-                  <!-- note: unique dapat ang product id 
-                            para hindi na re-retrieve ang same
-                            product kapag nag add to cart 
-                  -->
-              <button class="add-to-cart" 
-                      data-product-id="2" 
-                      data-product-name="Wrist Blood Pressure Monitor" 
-                      data-product-price="2313">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>  
-                Add to Cart
-              </button>
-            </div>
-          </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/Cetaphil.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/cetaphil.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">Moisturizing Body <br> Wash</h1>
-              <p class="products_price">₱ 450</p>
-                  <!-- nasa button ang product data nila -->
-                  <!-- note: unique dapat ang product id 
-                            para hindi na re-retrieve ang same
-                            product kapag nag add to cart 
-                  -->
-              <button class="add-to-cart" 
-                      data-product-id="3" 
-                      data-product-name="Moisturizing Body Wash" 
-                      data-product-price="450">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/GrabberTool.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/grabber-tool.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">32-Inch <br> Grabber Tool</h1>
-              <p class="products_price">₱ 650</p>
-                  <!-- nasa button ang product data nila -->
-                  <!-- note: unique dapat ang product id 
-                        para hindi na re-retrieve ang same
-                        product kapag nag add to cart 
-                  -->
-              <button class="add-to-cart" 
-                      data-product-id="4" 
-                      data-product-name="32-Inch Reacher Grabber Tool" 
-                      data-product-price="650">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/ShowerChair.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/shower-chair.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">Adjustable Shower <br> Chair</h1>
-              <p class="products_price">₱ 2,200</p>
-                  <!-- nasa button ang product data nila -->
-                  <!-- note: unique dapat ang product id 
-                        para hindi na re-retrieve ang same
-                        product kapag nag add to cart 
-                  -->
-              <button class="add-to-cart" 
-                      data-product-id="5" 
-                      data-product-name="Adjustable Shower Chair with Backrest" 
-                      data-product-price="2200">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/MobilityScooter.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/mobility-scooter.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">4 Wheel Mobility <br> Scooter</h1>
-              <p class="products_price">₱ 30,000</p>
-                  <!-- nasa button ang product data nila -->
-                  <!-- note: unique dapat ang product id 
-                        para hindi na re-retrieve ang same
-                        product kapag nag add to cart 
-                  -->
-              <button class="add-to-cart" 
-                      data-product-id="6" 
-                      data-product-name="4 Wheel Mobility Scooter" 
-                      data-product-price="30000">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/CommodeShowerChair.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/Commode_Shower_Chair.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">Commode Shower <br> Chair</h1>
-              <p class="products_price">₱ 1,300</p>
-                  <!-- nasa button ang product data nila -->
-                  <!-- note: unique dapat ang product id 
-                        para hindi na re-retrieve ang same
-                        product kapag nag add to cart 
-                  -->
-              <button class="add-to-cart" 
-                      data-product-id="7" 
-                      data-product-name="Commode Shower Chair" 
-                      data-product-price="1300">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </article>
-
-          <article class="products">
-            <a href="../html/ProductsDetailsPage/SiliconeBandages.php">
-              <div class="products_item">
-                <div class="con">
-                  <img src="../assets/bandages.png" alt="Wheelchair" class="products_image">
-                </div>
-              </div>
-            </a>
-            <div class="wrap">
-              <h1 class="products_details">Silicone <br> Bandages</h1>
-              <p class="products_price">₱ 1,397.49</p>
-              <!-- nasa button ang product data nila -->
-              <!-- note: unique dapat ang product id 
-                    para hindi na re-retrieve ang same
-                    product kapag nag add to cart 
-              -->
-              <button class="add-to-cart" 
-                      data-product-id="8" 
-                      data-product-name="Silicone Bandages" 
-                      data-product-price="1397.49">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </article>
+        <div class="products_container" id="products-container">
+            <!-- dynamically updates  here -->
         </div>
     </section>
     <!------------------------ END POPULAR PRODUCTS --------------------->
@@ -561,352 +312,11 @@ $name = $_SESSION['name'];
     <!----------------------- START DAILY ESSENTIALS -------------------->
     <section class="daily-essentials">
       <div class="essentials-header">
-        <h1 class="essentials-title">
-          DAILY ESSENTIALS
-        </h1>
+        <h1 class="essentials-title">DAILY ESSENTIALS</h1>
       </div>
-      
-      <div class="essentials">
-          <!-- Wheelchair -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/standard-wheelchair.png" alt="809 Standard Wheelchair" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">809 Standard Wheelchair</h1>
-              <p class="essentials_price">₱ 4,000</p>
-          </div>
 
-          <!-- Adult Diapers -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/adult-diapers.png" alt="Adult Diapers" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Adult Diapers</h1>
-              <p class="essentials_price">₱ 250.00</p>
-          </div>
-
-          <!-- Incontinence Cleanser -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/Incontenience Cleanser.png" alt="Incontinence Cleanser" class="essentials_image" style="width: 100%; height: 90%; margin-right: 0.8rem;">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Incontinence Cleanser</h1>
-              <p class="essentials_price">₱ 260.00</p>       
-          </div>
-
-          <!-- Non slip mat -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/Non slip mat.png" alt="Non slip mat" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Non slip mat </h1>
-              <p class="essentials_price"> ₱ 129 </p>       
-          </div>
-
-          <!-- Toothette Plus Swabs -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/Toothette Plus Swabs.png" alt="Toothette Plus Swabs" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Toothette Plus Swabs</h1>
-              <p class="essentials_price">₱ 700</p>       
-          </div>
-
-          <!-- Toothette Mouth Moisturizer -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/Toothette Mouth Moisturizer.png" alt="Toothette Mouth Moisturizer" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Toothette Mouth Moisturizer</h1>
-              <p class="essentials_price">₱ 583</p>       
-          </div>
-      
-          <!-- Vegetable Chopper Handle Food -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/vegetable-chopper.png" alt="Vegetable Chopper Handle Food" class="essentials_image" style="width: 70%; height: 70%;">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Vegetable Chopper Handle Food</h1>
-              <p class="essentials_price">₱ 1,986.89</p>       
-          </div>
-
-          <!-- folding-walker -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/Folding Rollator Walker.png" alt="Folding Rollator Walker" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Folding Rollator Walker</h1>
-              <p class="essentials_price">₱ 1,500</p>       
-          </div>
-
-          <!-- SuperNutrition -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/SuperNutrition.png" alt="SuperNutrition" class="essentials_image" style="width: 75%; height: 90%;">
-              </div>
-              <div class="add-to-cart-label">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">SuperNutrition SimplyOne</h1>
-              <p class="essentials_price">₱ 1,500</p>       
-          </div>
-
-          <!-- mobility-steps -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/mobility-steps.png" alt="mobility-steps" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Mobility steps</h1>
-              <p class="essentials_price">₱ 12,815.66</p>       
-          </div>
-
-          <!-- elastic-shoelace -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/elastic-shoelace.png" alt="mobility-steps" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Elastic Shoelaces</h1>
-              <p class="essentials_price">₱ 150</p>       
-          </div>
-
-          <!-- elastic-shoelace -->
-          <div class="essentials_item">
-              <div class="image-con">
-                <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image">
-              </div>
-              <div class="add-to-cart-label">
-                  <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <h1>Add to Cart</h1>
-              </div>
-              <h1 class="essentials_details">Commode Shower Chair</h1>
-              <p class="essentials_price">₱ 3,500</p>       
-          </div>
-      </div>
-      <!----------------------- END DAILY ESSENTIALS -------------------->
-
-
-      <!-------------------------- START VIEW MORE ---------------------->
-      <div class="view-more-container" id="viewMoreEssentials">
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
-
-        <div class="essentials_item">
-          <img src="../assets/Commode_Shower_Chair.png" alt="Commode Shower Chair" class="essentials_image essentials_large" style="width: 14rem; height: 14rem; margin: 1rem 0 1rem 2rem;">
-          <div class="add-to-cart-label">
-              <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h1>Add to Cart</h1>
-          </div>
-          <h1 class="essentials_details">Commode Shower Chair</h1>
-          <p class="essentials_price">₱ 3,500</p>       
-        </div>
+      <div class="essentials" id="essentials-container">
+          <!-- dynamically updates  here -->
       </div>
 
       <div class="view-more">
@@ -1009,9 +419,8 @@ $name = $_SESSION['name'];
       <h1 class="footer-copyright">© 2024 <span class="brand-name">Elder Living</span></h1>
     </div>
   </footer>
-</body>
-  <script>
 
+<script>
   function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -1169,4 +578,191 @@ $name = $_SESSION['name'];
   }
 
   </script>
+
+// fetch popular products
+<script>
+fetch('./fetchPop.php')
+  .then(response => response.json())
+  .then(products => {
+    const container = document.getElementById('products-container');
+
+    container.innerHTML = '';
+
+    products.forEach(product => {
+      console.log("Popular Products fetched successfully!");
+
+      const productElement = document.createElement('article');
+      productElement.classList.add('products');
+
+      const productLink = document.createElement('a');
+      productLink.href = product.productDetailsPage;
+
+      const productItem = document.createElement('div');
+      productItem.classList.add('products_item');
+
+      const productImage = document.createElement('img');
+      productImage.src = product.productImage;
+      productImage.alt = product.productName;
+      productImage.classList.add('products_image');
+
+      productItem.appendChild(productImage);
+      productLink.appendChild(productItem);
+
+      const wrap = document.createElement('div');
+      wrap.classList.add('wrap');
+
+      const productName = document.createElement('h1');
+      productName.classList.add('products_details');
+      productName.innerHTML = product.productName;
+
+      const productPrice = document.createElement('p');
+      productPrice.classList.add('products_price');
+      productPrice.innerHTML = `₱ ${product.productPrice}`;
+
+      const addToCartButton = document.createElement('button');
+      addToCartButton.classList.add('add-to-cart');
+      addToCartButton.setAttribute('data-product-id', product.productId);
+      addToCartButton.setAttribute('data-product-name', product.productName);
+      addToCartButton.setAttribute('data-product-price', product.productPrice);
+      addToCartButton.innerHTML = `
+          <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Add to Cart
+      `;
+
+      addToCartButton.addEventListener('click', () => {
+        const cartItem = {
+          id: product._id, // we'll use the extracted _id as the unique identifier
+          name: product.productName,
+          price: parseFloat(product.productPrice),
+          image: product.productImage,
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItem = cart.find(item => item.id === product._id); // find by _id?
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(cartItem);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartDropdown();
+        showModal();
+      });
+
+      wrap.appendChild(productName);
+      wrap.appendChild(productPrice);
+      wrap.appendChild(addToCartButton);
+
+      productElement.appendChild(productLink);
+      productElement.appendChild(wrap);
+
+      container.appendChild(productElement);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching popular products:', error);
+  });
+
+</script>
+
+// fetch daily essentials
+<script>
+let page = 1; // tracker of the page number
+
+function fetchAndAppendDailyEssentials(pageNumber) {
+    fetch('./fetchDaily.php')
+      .then(response => response.json())
+      .then(products => {
+        const container = document.getElementById('essentials-container');
+
+        products.forEach(product => {
+          console.log("Daily Essentials fetched successfully!");
+
+          const productElement = document.createElement('div');
+          productElement.classList.add('essentials_item');
+
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-con');
+          const productImage = document.createElement('img');
+          productImage.src = product.productImage;
+          productImage.alt = product.productName;
+          productImage.classList.add('essentials_image');
+          imageContainer.appendChild(productImage);
+          productElement.appendChild(imageContainer);
+
+          // Add to Cart Label
+          const addToCartLabel = document.createElement('div');
+          addToCartLabel.classList.add('add-to-cart-label');
+          addToCartLabel.innerHTML = `
+            <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1>Add to Cart</h1>
+          `;
+          productElement.appendChild(addToCartLabel);
+
+          const productDetails = document.createElement('div');
+          productDetails.classList.add('product-details');
+          const productName = document.createElement('h1');
+          productName.classList.add('essentials_details');
+          productName.textContent = product.productName;
+          const productPrice = document.createElement('p');
+          productPrice.classList.add('essentials_price');
+          productPrice.textContent = `₱ ${product.productPrice}`;
+          productDetails.appendChild(productName);
+          productDetails.appendChild(productPrice);
+          productElement.appendChild(productDetails);
+
+          // add to cart listener
+          addToCartLabel.addEventListener('click', () => {
+            const cartItem = {
+              id: product.productId, // changed from product._id to product.productId
+              name: product.productName,
+              price: parseFloat(product.productPrice),
+              image: product.productImage,
+              quantity: 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === product.productId); // changed from product._id to product.productId
+            if (existingItem) {
+              existingItem.quantity += 1;
+            } else {
+              cart.push(cartItem);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            updateCartDropdown();
+            showModal();
+          });
+
+          container.appendChild(productElement);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching daily essentials:', error);
+      });
+}
+
+function viewMore() {
+  page++; // increment
+  fetchAndAppendDailyEssentials(page);
+}
+
+// initial load
+fetchAndAppendDailyEssentials(page);
+</script>
+
+
+</body>
 </html>

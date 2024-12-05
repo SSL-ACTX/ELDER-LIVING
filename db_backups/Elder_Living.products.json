@@ -1,0 +1,312 @@
+[{
+  "_id": {
+    "$oid": "674ee323385cacbd3d222604"
+  },
+  "name": "Easy Grip Cutlery Set Bendable Eating Aid",
+  "image": "/assets/easy-to-grip.png",
+  "price": 865.43,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d222605"
+  },
+  "name": "Kitchen Set Cooking Utensils",
+  "image": "/assets/kitchen-set.png",
+  "price": 438.82,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d222606"
+  },
+  "name": "3-in-1 Kitchen Tool Apple Fruit Corer Slicer",
+  "image": "/assets/3in1-peeling.png",
+  "price": 759.33,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d222607"
+  },
+  "name": "Egg Cracker Tool Egg Breaker",
+  "image": "/assets/egg-cracker.png",
+  "price": 101.13,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d222608"
+  },
+  "name": "Vegetable Chopper Handle Food Grate",
+  "image": "/assets/vegetable-chopper.png",
+  "price": 1986.89,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d222609"
+  },
+  "name": "Kitchen dish towels",
+  "image": "/assets/kitchen-towels.png",
+  "price": 759.33,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d22260a"
+  },
+  "name": "3-in-1 Kitchen Tool Apple Fruit Corer Slicer",
+  "image": "/assets/3in1-peeling.png",
+  "price": 759.33,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "674ee323385cacbd3d22260b"
+  },
+  "name": "Easy Grip Cutlery Set Bendable Eating Aid",
+  "image": "/assets/easy-to-grip.png",
+  "price": 865.43,
+  "category": "Adaptive Kitchen Tools"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb1d"
+  },
+  "productId": 1,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "809 Standard Wheelchair",
+  "productPrice": 4000,
+  "productImage": "../assets/standard-wheelchair.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/Wheelchair-Details.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb1e"
+  },
+  "productId": 2,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "Wrist Blood Pressure Monitor",
+  "productPrice": 2313,
+  "productImage": "../assets/wrist_blood.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/BloodMonitor.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb1f"
+  },
+  "productId": 3,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "Moisturizing Body Wash",
+  "productPrice": 450,
+  "productImage": "../assets/cetaphil.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/Cetaphil.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb20"
+  },
+  "productId": 4,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "32-Inch Reacher Grabber Tool",
+  "productPrice": 650,
+  "productImage": "../assets/grabber-tool.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/GrabberTool.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb21"
+  },
+  "productId": 5,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "Adjustable Shower Chair with Backrest",
+  "productPrice": 2200,
+  "productImage": "../assets/shower-chair.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/ShowerChair.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb22"
+  },
+  "productId": 6,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "4 Wheel Mobility Scooter",
+  "productPrice": 30000,
+  "productImage": "../assets/mobility-scooter.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/MobilityScooter.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb23"
+  },
+  "productId": 7,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "Commode Shower Chair",
+  "productPrice": 1300,
+  "productImage": "../assets/Commode_Shower_Chair.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/CommodeShowerChair.php"
+},
+{
+  "_id": {
+    "$oid": "675181aaf99324291f14eb24"
+  },
+  "productId": 8,
+  "productType": "Popular Products",
+  "category": "Popular Products",
+  "productName": "Silicone Bandages",
+  "productPrice": 1397.49,
+  "productImage": "../assets/bandages.png",
+  "productDetailsPage": "../html/ProductsDetailsPage/SiliconeBandages.php"
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb25"
+  },
+  "productId": 9,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "809 Standard Wheelchair",
+  "productPrice": 4000,
+  "productImage": "../assets/standard-wheelchair.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb26"
+  },
+  "productId": 10,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Adult Diapers",
+  "productPrice": 250,
+  "productImage": "../assets/adult-diapers.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb27"
+  },
+  "productId": 11,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Incontinence Cleanser",
+  "productPrice": 260,
+  "productImage": "../assets/Incontenience Cleanser.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb28"
+  },
+  "productId": 12,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Non slip mat",
+  "productPrice": 129,
+  "productImage": "../assets/Non slip mat.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb29"
+  },
+  "productId": 13,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Toothette Plus Swabs",
+  "productPrice": 700,
+  "productImage": "../assets/Toothette Plus Swabs.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb2a"
+  },
+  "productId": 14,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Toothette Mouth Moisturizer",
+  "productPrice": 583,
+  "productImage": "../assets/Toothette Mouth Moisturizer.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb2b"
+  },
+  "productId": 15,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Vegetable Chopper Handle Food",
+  "productPrice": 1986.89,
+  "productImage": "../assets/vegetable-chopper.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb2c"
+  },
+  "productId": 16,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Folding Rollator Walker",
+  "productPrice": 1500,
+  "productImage": "../assets/Folding Rollator Walker.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb2d"
+  },
+  "productId": 17,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "SuperNutrition SimplyOne",
+  "productPrice": 1500,
+  "productImage": "../assets/SuperNutrition.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb2e"
+  },
+  "productId": 10,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Mobility steps",
+  "productPrice": 12815.66,
+  "productImage": "../assets/mobility-steps.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb2f"
+  },
+  "productId": 11,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Elastic Shoelaces",
+  "productPrice": 150,
+  "productImage": "../assets/elastic-shoelace.png",
+  "productDetailsPage": ""
+},
+{
+  "_id": {
+    "$oid": "67518e8ff99324291f14eb30"
+  },
+  "productId": 12,
+  "productType": "Daily Essentials",
+  "category": "Daily Essentials",
+  "productName": "Commode Shower Chair",
+  "productPrice": 3500,
+  "productImage": "../assets/Commode_Shower_Chair.png",
+  "productDetailsPage": ""
+}]

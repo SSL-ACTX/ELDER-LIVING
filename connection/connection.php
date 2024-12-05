@@ -8,5 +8,6 @@ $orderCollection = $client->Elder_Living->orders;
 $adminCollection = $client->Elder_Living->admin;
 $adminStatsCollection = $client->Elder_Living->adminStats;
 $reviewCollection = $client->Elder_Living->reviews;
+$productCollection = $client->Elder_Living->products;
 
 ?>

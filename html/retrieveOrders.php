@@ -3,6 +3,9 @@ require '../connection/connection.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
+// Define base URL for the images
+$baseUrl = "http://localhost:8000/assets/";
+
 if (isset($data['username'])) {
     $username = $data['username'];
     $orders = $orderCollection->find(['username' => $username]);
@@ -11,9 +14,17 @@ if (isset($data['username'])) {
     foreach ($orders as $order) {
         $cartDetails = [];
         foreach ($order['cart'] as $item) {
+            // Check if the image is already a full URL (starts with http)
+            $itemImage = isset($item['image']) && $item['image']
+                ? (filter_var($item['image'], FILTER_VALIDATE_URL) ? $item['image'] : $baseUrl . $item['image'])
+                : (isset($item['productImage']) && $item['productImage']
+                    ? (filter_var($item['productImage'], FILTER_VALIDATE_URL) ? $item['productImage'] : $baseUrl . $item['productImage'])
+                    : '');
+
             $cartDetails[] = [
                 'name' => $item['name'],
-                'image' => $item['image'],
+                'image' => $itemImage,  // Use the resolved image here
+                'fbImage' => $item['productImage'],  // Keep the original productImage in case needed
                 'quantity' => $item['quantity'],
                 'price' => $item['price']
             ];

@@ -3,6 +3,7 @@ require '../connection/connection.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
+// cart has no uses at all. just for mongodb db viewing
 if (isset($data['username']) && isset($data['cart'])) {
     $cartItems = json_decode($data['cart'], true);
     $username = $data['username'];

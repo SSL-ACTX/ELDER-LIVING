@@ -31,7 +31,7 @@ if (isset($data['username']) && isset($data['cart']) && isset($data['paymentMeth
             'postalCode' => $postalCode
         ],
         'deliveryStatus' => 'to-ship',
-        'paymentStatus' => $paymentMethod == 'Cash on Delivery' ? 'pending' : 'paid',
+        'paymentStatus' => $paymentMethod == 'COD' ? 'pending' : 'paid',
         'created_at' => new MongoDB\BSON\UTCDateTime(),
         'updated_at' => new MongoDB\BSON\UTCDateTime()
     ];

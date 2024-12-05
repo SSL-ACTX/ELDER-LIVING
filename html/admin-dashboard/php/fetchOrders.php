@@ -3,26 +3,21 @@ require '../../../connection/connection.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $database = $client->Elder_Living;
-$ordersCollection = $database->orders; // Assuming "orders" is the collection name
+$ordersCollection = $database->orders;
 
-// Fetch all orders
 $orders = $ordersCollection->find();
 
-// Convert the result to an array
 $orderArray = iterator_to_array($orders);
 
-// Process each order to format the response
 $formattedOrders = [];
 
 foreach ($orderArray as $order) {
-    // Smartly detect payment method
-    $paymentMethod = 'COD'; // Default to COD
+    $paymentMethod = 'COD';
     if (isset($order['paymentDetails']['purchase_units'][0]['payments']['captures'][0]['id'])) {
-        $paymentMethod = 'PayPal'; // If PayPal capture exists, it's PayPal
+        $paymentMethod = 'PayPal';
     }
 
-    // Determine order status based on deliveryStatus
-    $orderStatus = 'Completed'; // Default status
+    $orderStatus = 'Completed';
     if (isset($order['deliveryStatus'])) {
         switch ($order['deliveryStatus']) {
             case 'to-pay':
@@ -45,35 +40,42 @@ foreach ($orderArray as $order) {
         }
     }
 
-    $cart = iterator_to_array($order['cart']);
+    $cart = isset($order['cart']) ? iterator_to_array($order['cart']) : [];
 
     $productIds = array_map(function($item) {
-        return "#" . $item['id'];
+        return isset($item['id']) ? "#" . $item['id'] : 'N/A';
     }, $cart);
     $productIdsString = implode(', ', $productIds);
 
-    $createdAt = $order['created_at']; // to prevent bson json format err
-
+    $createdAt = isset($order['created_at']) ? $order['created_at'] : null;
     if ($createdAt instanceof MongoDB\BSON\UTCDateTime) {
         $createdAt = $createdAt->toDateTime();
     }
 
-    $formattedDate = $createdAt->format('d M Y (h:i a)');
+    $formattedDate = $createdAt ? $createdAt->format('d M Y (h:i a)') : 'N/A';
 
     if ($paymentMethod == 'COD') {
         // for COD, the total price is directly in the 'totalPrice' field
-        $amount = $order['totalPrice'];
+        $amount = isset($order['totalPrice']) ? $order['totalPrice'] : 0;
     } else {
         // For PayPal, it's in paymentDetails
         $amount = isset($order['paymentDetails']['purchase_units'][0]['amount']['value']) ?
                   $order['paymentDetails']['purchase_units'][0]['amount']['value'] : 0;
     }
 
+    $paymentStatus = 'Paid';
+    if ($paymentMethod == 'PayPal' && isset($order['paymentDetails']['purchase_units'][0]['payments']['captures'][0]['status'])) {
+        $paymentStatus = $order['paymentDetails']['purchase_units'][0]['payments']['captures'][0]['status'];
+    }
+
+    // fallback image handler - to fix annoying images dir issues
+    $imageUrl = isset($cart[0]['image']) ? "http://localhost:8000/assets/" . basename($cart[0]['image']) : 'http://localhost:8000/assets/ph.jpg'; // add fallback image here if you want
+
     $formattedOrder = [
         'id' => (string) $order['_id'],
-        'image' => $cart[0]['image'],
+        'image' => $imageUrl,
         'product_ids' => $productIdsString,
-        'customer' => $order['username'],
+        'customer' => isset($order['username']) ? $order['username'] : 'Unknown',
         'date_time' => $formattedDate,
         'payment_method' => $paymentMethod,
         'status' => $orderStatus,

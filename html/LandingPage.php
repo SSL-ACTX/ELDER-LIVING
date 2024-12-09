@@ -24,6 +24,7 @@ $name = $_SESSION['name'];
   <link rel="stylesheet" href="../css/LandingPage.css">
   <link rel="stylesheet" href="../javascript/LandingPage.js">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -106,6 +107,9 @@ $name = $_SESSION['name'];
         </div>
       </header>
 
+    <!-- broken search container -- forced tailwind css -->
+    <div class="floating-container mt-2 max-w-full bg-white shadow-md rounded-md overflow-hidden z-100 hidden  top-20 left-0 w-full" id="productResults"></div>
+
     <div class="navbar-border"></div>
     <nav class="navbar" id="myTopnav">
       <ul>
@@ -118,8 +122,11 @@ $name = $_SESSION['name'];
           </div>
           <h1 class="nav-sidebar-logo">Elder Living</h1>
           <div class="sidebar-search-container">
-              <input type="search" class="sidebar-search-input" placeholder="Search for products...." name="search">
-              <img src="/assets/search-icon.png" alt="Search Icon" class="search-icon">
+              <form action="search.php" method="GET">
+                  <input type="search" class="sidebar-search-input" placeholder="Search for products...." name="search">
+                  <img src="/assets/search-icon.png" alt="Search Icon" class="search-icon">
+                  <button type="submit">Search</button>
+              </form>
           </div>
           <li>
               <a class="nav-link" href="#">Home</a>
@@ -274,7 +281,7 @@ $name = $_SESSION['name'];
                 </button>
             </div>
             <img 
-                class="graphics-image" 
+                class="graphics-image"
                 src="../assets/LandingPageGraphics3.png" 
                 alt="Home Safety & Accessibility"
             >
@@ -289,7 +296,7 @@ $name = $_SESSION['name'];
                 Shop Now
             </button>
             <img 
-                class="graphics-image" 
+                class="graphics-image"
                 src="../assets/LandingPageGraphics3.png" 
                 alt="Home Safety & Accessibility"
             >
@@ -420,130 +427,44 @@ $name = $_SESSION['name'];
     </div>
   </footer>
 
+<!-- main script and fetch popular PRODUCTS -->
 <script>
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
+  // important! function to assign a cart based on their username
+  function getCartKey() {
+    const username = "<?php echo $_SESSION['username']; ?>";
+    return `cart_${username}`;
   }
 
-  function CloseFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className.includes("closed")) {
-          x.className = "navbar";
-      } else {
-          x.className += " closed";
-      }
+  function getCartCount() {
+    const cartKey = getCartKey();
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    return cart.length;
   }
-
-  function viewMore() {
-    const view = document.getElementById("viewMoreEssentials");
-    view.click(); view.style.display = "block";
-    view.style.display = "flex";
-  }
-
-  const products = [
-    { id: 1, name: "809 Standard Wheelchair" },
-    { id: 2, name: "Wrist Blood Pressure Monitor" },
-    { id: 3, name: "Moisturizing Body Wash" },
-    { id: 4, name: "32-Inch Reacher Grabber Tool" },
-    { id: 5, name: "Adjustable Shower Chair" },
-    { id: 6, name: "4 Wheel Mobility Scooter" },
-    { id: 7, name: "Centrum Adults" },
-    { id: 8, name: "Silicone Bandages" },
-  ];
-
-  function filterProducts() {
-    const input = document.querySelector('.search-input').value.toLowerCase();
-    const dropdown = document.getElementById('productDropdown');
-    dropdown.innerHTML = ''; 
-
-    if (input) {
-      const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(input)
-      );
-
-      if (filteredProducts.length > 0) {
-        dropdown.style.display = 'block';
-        filteredProducts.forEach(product => {
-          const item = document.createElement('div');
-          item.className = 'dropdown-item';
-          item.textContent = product.name;
-          item.onclick = () => selectProduct(product);
-          dropdown.appendChild(item);
-        });
-      } else {
-        dropdown.style.display = 'none';
-      }
-    } else {
-      dropdown.style.display = 'none';
-    }
-  }
-  function selectProduct(product) {
-    const input = document.querySelector('.search-input');
-    input.value = product.name;
-    document.getElementById('productDropdown').style.display = 'none';
-  }
-
-  // start of cart function //
-  window.addEventListener('load', () => {
-    updateCartCount();
-    updateCartDropdown();
-  });
-
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const productId = button.dataset.productId;
-      const productName = button.dataset.productName;
-      const productPrice = parseFloat(button.dataset.productPrice);
-      const productImage = button.closest('.wrap').previousElementSibling.querySelector('.products_image').src;
-
-      const cartItem = {
-        id: productId,
-        name: productName,
-        price: productPrice,
-        image: productImage,
-        quantity: 1
-      };
-
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      const existingItem = cart.find(item => item.id === productId);
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push(cartItem);
-      }
-
-      localStorage.setItem('cart', JSON.stringify(cart));
-      
-      updateCartCount();
-      updateCartDropdown();
-      showModal();
-    });
-  });
 
   function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalUniqueItems = cart.length; 
+      const cartKey = getCartKey();
+      const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+      const totalUniqueItems = cart.length;
 
-    const cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = totalUniqueItems;
-    cartCountElement.style.display = totalUniqueItems > 0 ? 'flex' : 'none'; 
+      const cartCountElement = document.querySelector('.cart-count');
+      cartCountElement.textContent = totalUniqueItems;
+      cartCountElement.style.display = totalUniqueItems > 0 ? 'flex' : 'none';
+
   }
+  // update card count at page start
+  document.addEventListener('DOMContentLoaded', updateCartCount);
 
+  // update the cart dropdown
   function updateCartDropdown() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartKey = getCartKey();
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     const cartItemsContainer = document.querySelector('.cart-items');
-    const viewCartLink = document.querySelector('.cart-footer');  
-    cartItemsContainer.innerHTML = ''; 
+    const viewCartLink = document.querySelector('.cart-footer');
+    cartItemsContainer.innerHTML = '';
 
     if (cart.length === 0) {
       cartItemsContainer.innerHTML = '<p class="empty-message">Your cart is empty.</p>';
-      viewCartLink.style.display = 'none'; 
+      viewCartLink.style.display = 'none';
     } else {
       const recentlyAddedText = document.createElement('p');
       recentlyAddedText.className = 'recently-added-text';
@@ -559,7 +480,7 @@ $name = $_SESSION['name'];
           <img src="${item.image || 'default-image-url'}" alt="${item.name || 'Unnamed Product'}" class="cart-item-image">
           <div class="cart-item-details">
             <span class="cart-item-name">${item.name || 'Unnamed Product'}</span>
-            <span class="cart-item-price">${formattedPrice}</span> 
+            <span class="cart-item-price">${formattedPrice}</span>
           </div>
         `;
         cartItemsContainer.appendChild(cartItemElement);
@@ -568,111 +489,145 @@ $name = $_SESSION['name'];
     }
   }
 
+  document.addEventListener('DOMContentLoaded', updateCartDropdown);
+
+
+  // modal for the cart addition
   function showModal() {
     const modal = document.getElementById('cart-modal');
     modal.style.display = 'flex';
 
     setTimeout(() => {
-      modal.style.display = 'none'; 
+      modal.style.display = 'none';
     }, 3000);
   }
 
-  </script>
+  // add product to the cart
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.dataset.productId;
+      const productName = button.dataset.productName;
+      const productPrice = parseFloat(button.dataset.productPrice);
+      const productImage = button.closest('.wrap').previousElementSibling.querySelector('.products_image').src;
 
-// fetch popular products
-<script>
-fetch('./fetchPop.php')
-  .then(response => response.json())
-  .then(products => {
-    const container = document.getElementById('products-container');
+      const cartItem = {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        quantity: 1
+      };
 
-    container.innerHTML = '';
+      const cartKey = getCartKey();
+      let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-    products.forEach(product => {
-      console.log("Popular Products fetched successfully!");
+      const existingItem = cart.find(item => item.id === productId);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(cartItem);
+      }
 
-      const productElement = document.createElement('article');
-      productElement.classList.add('products');
+      localStorage.setItem(cartKey, JSON.stringify(cart));
 
-      const productLink = document.createElement('a');
-      productLink.href = product.productDetailsPage;
-
-      const productItem = document.createElement('div');
-      productItem.classList.add('products_item');
-
-      const productImage = document.createElement('img');
-      productImage.src = product.productImage;
-      productImage.alt = product.productName;
-      productImage.classList.add('products_image');
-
-      productItem.appendChild(productImage);
-      productLink.appendChild(productItem);
-
-      const wrap = document.createElement('div');
-      wrap.classList.add('wrap');
-
-      const productName = document.createElement('h1');
-      productName.classList.add('products_details');
-      productName.innerHTML = product.productName;
-
-      const productPrice = document.createElement('p');
-      productPrice.classList.add('products_price');
-      productPrice.innerHTML = `₱ ${product.productPrice}`;
-
-      const addToCartButton = document.createElement('button');
-      addToCartButton.classList.add('add-to-cart');
-      addToCartButton.setAttribute('data-product-id', product.productId);
-      addToCartButton.setAttribute('data-product-name', product.productName);
-      addToCartButton.setAttribute('data-product-price', product.productPrice);
-      addToCartButton.innerHTML = `
-          <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Add to Cart
-      `;
-
-      addToCartButton.addEventListener('click', () => {
-        const cartItem = {
-          id: product._id, // we'll use the extracted _id as the unique identifier
-          name: product.productName,
-          price: parseFloat(product.productPrice),
-          image: product.productImage,
-          quantity: 1
-        };
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingItem = cart.find(item => item.id === product._id); // find by _id?
-        if (existingItem) {
-          existingItem.quantity += 1;
-        } else {
-          cart.push(cartItem);
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-        updateCartDropdown();
-        showModal();
-      });
-
-      wrap.appendChild(productName);
-      wrap.appendChild(productPrice);
-      wrap.appendChild(addToCartButton);
-
-      productElement.appendChild(productLink);
-      productElement.appendChild(wrap);
-
-      container.appendChild(productElement);
+      updateCartCount();
+      updateCartDropdown();
+      showModal();
     });
-  })
-  .catch(error => {
-    console.error('Error fetching popular products:', error);
   });
 
+  fetch('./fetchPop.php')
+    .then(response => response.json())
+    .then(products => {
+      const container = document.getElementById('products-container');
+
+      container.innerHTML = '';
+
+      products.forEach(product => {
+        console.log("Popular products fetched successfully!");
+
+        const productElement = document.createElement('article');
+        productElement.classList.add('products');
+
+        const productLink = document.createElement('a');
+        productLink.href = product.productDetailsPage;
+
+        const productItem = document.createElement('div');
+        productItem.classList.add('products_item');
+
+        const productImage = document.createElement('img');
+        productImage.src = product.productImage;
+        productImage.alt = product.productName;
+        productImage.classList.add('products_image');
+
+        productItem.appendChild(productImage);
+        productLink.appendChild(productItem);
+
+        const wrap = document.createElement('div');
+        wrap.classList.add('wrap');
+
+        const productName = document.createElement('h1');
+        productName.classList.add('products_details');
+        productName.innerHTML = product.productName;
+
+        const productPrice = document.createElement('p');
+        productPrice.classList.add('products_price');
+        productPrice.innerHTML = `₱ ${product.productPrice}`;
+
+        const addToCartButton = document.createElement('button');
+        addToCartButton.classList.add('add-to-cart');
+        addToCartButton.setAttribute('data-product-id', product.productId);
+        addToCartButton.setAttribute('data-product-name', product.productName);
+        addToCartButton.setAttribute('data-product-price', product.productPrice);
+        addToCartButton.innerHTML = `
+            <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Add to Cart
+        `;
+
+        addToCartButton.addEventListener('click', () => {
+          const cartItem = {
+            id: product.productId,
+            name: product.productName,
+            price: parseFloat(product.productPrice),
+            image: product.productImage,
+            quantity: 1
+          };
+
+          const cartKey = getCartKey();
+          let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+          const existingItem = cart.find(item => item.id === product.productId);
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push(cartItem);
+          }
+          localStorage.setItem(cartKey, JSON.stringify(cart));
+          updateCartCount();
+          updateCartDropdown();
+          showModal();
+        });
+
+        wrap.appendChild(productName);
+        wrap.appendChild(productPrice);
+        wrap.appendChild(addToCartButton);
+
+        productElement.appendChild(productLink);
+        productElement.appendChild(wrap);
+
+        container.appendChild(productElement);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching popular products:', error);
+    });
 </script>
 
-// fetch daily essentials
+<!-- Fetch daily essentials -->
 <script>
 let page = 1; // tracker of the page number
 
@@ -700,15 +655,15 @@ function fetchAndAppendDailyEssentials(pageNumber) {
           // Add to Cart Label
           const addToCartLabel = document.createElement('div');
           addToCartLabel.classList.add('add-to-cart-label');
-          addToCartLabel.innerHTML = `
-            <svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          addToCartLabel.innerHTML =
+            `<svg viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M4.88651 16.5703C5.23809 16.5703 5.52385 16.8922 5.52385 17.2883C5.52385 17.6844 5.23809 18.0054 4.88651 18.0054C4.53493 18.0054 4.25 17.6844 4.25 17.2883C4.25 16.8922 4.53493 16.5703 4.88651 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2623 16.5703C14.6139 16.5703 14.8997 16.8922 14.8997 17.2883C14.8997 17.6844 14.6139 18.0054 14.2623 18.0054C13.9108 18.0054 13.625 17.6844 13.625 17.2883C13.625 16.8922 13.9108 16.5703 14.2623 16.5703Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M1 1V1C2.02329 1.19967 2.78658 2.05914 2.86398 3.09885L3.5352 12.1145C3.60018 12.9928 4.25085 13.6672 5.03233 13.6672H14.1234C14.8699 13.6672 15.503 13.0491 15.6105 12.215L16.4012 6.05522C16.4986 5.29534 15.9763 4.6153 15.2956 4.6153H3.01116" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10.4688 8.07812H12.779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <h1>Add to Cart</h1>
-          `;
+            <h1>Add to Cart</h1>`;
+
           productElement.appendChild(addToCartLabel);
 
           const productDetails = document.createElement('div');
@@ -723,27 +678,30 @@ function fetchAndAppendDailyEssentials(pageNumber) {
           productDetails.appendChild(productPrice);
           productElement.appendChild(productDetails);
 
-          // add to cart listener
+          // Add to Cart listener for daily essentials
           addToCartLabel.addEventListener('click', () => {
-            const cartItem = {
-              id: product.productId, // changed from product._id to product.productId
-              name: product.productName,
-              price: parseFloat(product.productPrice),
-              image: product.productImage,
-              quantity: 1
-            };
+              const cartItem = {
+                id: product.productId,
+                name: product.productName,
+                price: parseFloat(product.productPrice),
+                image: product.productImage,
+                quantity: 1
+              };
 
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cart.find(item => item.id === product.productId); // changed from product._id to product.productId
-            if (existingItem) {
-              existingItem.quantity += 1;
-            } else {
-              cart.push(cartItem);
-            }
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            updateCartDropdown();
-            showModal();
+              const cartKey = getCartKey();
+              let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+              const existingItem = cart.find(item => item.id === product.productId);
+              if (existingItem) {
+                  existingItem.quantity += 1;
+              } else {
+                  cart.push(cartItem);
+              }
+
+              localStorage.setItem(cartKey, JSON.stringify(cart));
+              updateCartCount();
+              updateCartDropdown();
+              showModal();
           });
 
           container.appendChild(productElement);
@@ -763,6 +721,48 @@ function viewMore() {
 fetchAndAppendDailyEssentials(page);
 </script>
 
+
+<script>
+function filterProducts() {
+    const query = document.querySelector('.search-input').value.trim();
+    const productResults = document.getElementById('productResults');
+    productResults.innerHTML = ''; // Clear previous results
+
+    if (query.length > 0) {
+        fetch(`search.php?query=${encodeURIComponent(query)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.length > 0) {
+                    productResults.classList.remove('hidden');
+                    data.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.className = 'product-item px-4 py-2 border-b border-gray-200 hover:bg-gray-100';
+                        productDiv.innerHTML = `
+                            <img src="${product.productImage}" alt="${product.productName}" class="w-12 h-12 object-cover mr-3">
+                            <div>
+                                <p class="text-sm font-medium">${product.productName}</p>
+                                <p class="text-xs text-gray-600">$${product.productPrice}</p>
+                            </div>
+                        `;
+                        productResults.appendChild(productDiv);
+                    });
+                } else {
+                    productResults.innerHTML = '<p class="px-4 py-2 text-center text-gray-500">No products found.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching products:', error);
+            });
+    } else {
+        productResults.classList.add('hidden');
+    }
+}
+</script>
 
 </body>
 </html>

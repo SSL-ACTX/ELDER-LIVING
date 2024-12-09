@@ -207,6 +207,7 @@ function myFunction() {
     x.className = "topnav";
   }
 }
+
 function CloseFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className.includes("closed")) {
@@ -228,7 +229,12 @@ function decreaseQuantity() {
   }
 }
 
-const cart = JSON.parse(localStorage.getItem('cart')) || [];
+function getCartKey() {
+  const username = "<?php echo $_SESSION['username']; ?>";
+  return `cart_${username}`;
+}
+
+const cart = JSON.parse(localStorage.getItem(getCartKey())) || [];
 
 function displayCheckoutItems() {
   const summaryContainer = document.querySelector('.summary-item');
@@ -275,10 +281,26 @@ function displayCheckoutItems() {
   container.appendChild(subTotalElement);
 }
 
+function updateCartCount() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const totalUniqueItems = cart.length;
+  document.querySelector('.cart-count').textContent = totalUniqueItems;
+}
+
+function updateCartTitle() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const totalUniqueItems = cart.length;
+  const itemText = totalUniqueItems === 1 ? "item" : "items";
+  document.querySelector('.cart-title').textContent = `My shopping cart (${totalUniqueItems} ${itemText})`;
+}
+
 displayCheckoutItems();
+updateCartCount();
+updateCartTitle();
 </script>
 
-//paypal configs
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const paypalRadioButton = document.getElementById('paypal');
@@ -321,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }).render('#paypal-button-container');
 
   function calculateTotalPrice() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem(getCartKey())) || [];
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   }
 
@@ -335,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   function sendOrderToBackend(paymentDetails, paymentMethod) {
-    const cartData = JSON.stringify(JSON.parse(localStorage.getItem('cart')) || []);
+    const cartData = JSON.stringify(JSON.parse(localStorage.getItem(getCartKey())) || []);
     const fullName = document.querySelector('input[name="full-name"]').value;
     const phoneNumber = document.querySelector('input[name="phone-number"]').value;
     const address = document.querySelector('input[name="address"]').value;
@@ -376,10 +398,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function clearLocalStorage() {
-    localStorage.removeItem('cart'); // clear cart from localStorage
+    localStorage.removeItem(getCartKey()); // clear cart from localStorage
   }
+
+  updateCartCount();
+  updateCartTitle();
 });
 </script>
+
 
 
 </html>

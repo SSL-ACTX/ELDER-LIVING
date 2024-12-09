@@ -183,6 +183,7 @@ $name = $_SESSION['name'];
             </a>
           </div>
         </article>
+
       </div>
   </main>
   <footer class="site-footer">
@@ -247,52 +248,55 @@ $name = $_SESSION['name'];
 </body>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
+// Function to get the current user's cart key
+function getCartKey() {
+  const username = "<?php echo $_SESSION['username']; ?>";
+  return `cart_${username}`;
 }
-function CloseFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className.includes("closed")) {
-        x.className = "navbar";
-    } else {
-        x.className += " closed";
-    }
-}
-const cart = JSON.parse(localStorage.getItem('cart')) || [];
-function updateCartTitle() {
-  const cartTitle = document.querySelector('.cart-title');
+
+// Update the cart count for the current user
+function updateCartCount() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
   const totalUniqueItems = cart.length;
-  const itemText = totalUniqueItems === 1 ? "item" : "items"; 
-  cartTitle.textContent = `My shopping cart (${totalUniqueItems} ${itemText})`;
+  document.querySelector('.cart-count').textContent = totalUniqueItems;
+}
+
+function updateCartTitle() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const totalUniqueItems = cart.length;
+  const itemText = totalUniqueItems === 1 ? "item" : "items";
+  document.querySelector('.cart-title').textContent = `My shopping cart (${totalUniqueItems} ${itemText})`;
 }
 
 function updateCartSummary() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
   const subtotalText = document.querySelector('.summary-total');
   const subtotalAmount = document.querySelector('.subtotal-amount');
 
   const totalUniqueItems = cart.length;
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-  const totalPrice = cart.reduce((total, item) => total + item.quantity * item.price, 0); 
+  const totalPrice = cart.reduce((total, item) => total + item.quantity * item.price, 0);
 
   const itemText = totalUniqueItems === 1 ? "item" : "items";
   subtotalText.textContent = `Subtotal (${totalUniqueItems} ${itemText})`;
   subtotalAmount.textContent = `₱ ${totalPrice.toLocaleString()}`;
 }
 
+// Display cart items for the current user
 function displayCartItems() {
+  const cartKey = getCartKey();
   const cartContainer = document.getElementById('item');
   const cartSummary = document.querySelector('.cart-summary');
   const cartTitle = document.querySelector('.cart-title');
   const cartCount = document.querySelector('.cart-count');
 
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
   if (cart.length === 0) {
     cartContainer.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
-    cartSummary.style.display = 'none'; 
+    cartSummary.style.display = 'none';
     cartTitle.style.display = 'none';
     cartCount.style.display = 'none';
     updateCartTitle();
@@ -313,10 +317,10 @@ function displayCartItems() {
       <div class="details">
         <h3 class="product-name">${item.name}</h3>
         <h4 class="product-total-price">Price: ${formattedTotalPrice}</h4>
-        <div class="quantity-control"> 
-          <button class="quantity-btn decrease" data-id="${item.id}">-</button> 
+        <div class="quantity-control">
+          <button class="quantity-btn decrease" data-id="${item.id}">-</button>
           <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="changeQuantity(${item.id}, this.value)">
-          <button class="quantity-btn increase" data-id="${item.id}">+</button> 
+          <button class="quantity-btn increase" data-id="${item.id}">+</button>
         </div>
         <div class="button-area">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#313A5E" class="delete-button" data-id="${item.id}">
@@ -328,16 +332,17 @@ function displayCartItems() {
     cartContainer.appendChild(cartItemElement);
   });
 
-  cartSummary.style.display = 'block';  
-  updateCartTitle(); 
+  cartSummary.style.display = 'block';
+  updateCartTitle();
   updateCartSummary();
 
+  // Event listeners
   document.querySelectorAll('.decrease').forEach(button => {
-    button.addEventListener('click', (e) => decreaseQuantity(e.target.dataset.id));
+    button.addEventListener('click', (e) => decreaseQuantity(parseInt(e.target.dataset.id)));
   });
 
   document.querySelectorAll('.increase').forEach(button => {
-    button.addEventListener('click', (e) => increaseQuantity(e.target.dataset.id));
+    button.addEventListener('click', (e) => increaseQuantity(parseInt(e.target.dataset.id)));
   });
 
   document.querySelectorAll('.delete-button').forEach((button, index) => {
@@ -345,11 +350,14 @@ function displayCartItems() {
   });
 }
 
+// Function to update the item quantity in the cart based on user action (increase or decrease)
 function updateCartItemQuantity(id, quantityChange) {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
   const item = cart.find(item => item.id === id);
   if (item) {
     item.quantity = Math.max(1, item.quantity + quantityChange);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(cartKey, JSON.stringify(cart));
     displayCartItems();
   }
 }
@@ -359,62 +367,52 @@ function increaseQuantity(id) {
 }
 
 function decreaseQuantity(id) {
-  updateCartItemQuantity(id, -1); 
+  updateCartItemQuantity(id, -1);
 }
 
+// Function to change the quantity of an item directly through the input field
 function changeQuantity(id, newQuantity) {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
   const item = cart.find(item => item.id === id);
   if (item) {
     item.quantity = Math.max(1, parseInt(newQuantity, 10));
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(cartKey, JSON.stringify(cart));
     displayCartItems();
   }
 }
 
+// Remove an item from the cart
 function removeItem(id) {
-  const updatedCart = cart.filter(item => item.id !== id); 
-  localStorage.setItem('cart', JSON.stringify(updatedCart));
-  cart.length = 0;
-  cart.push(...updatedCart);
-  displayCartItems(); 
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const updatedCart = cart.filter(item => item.id !== id);
+  localStorage.setItem(cartKey, JSON.stringify(updatedCart));
+  displayCartItems();
   updateCartCount();
 }
 
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const totalUniqueItems = cart.length;
-  document.querySelector('.cart-count').textContent = totalUniqueItems;
-}
+// Function to periodically save the cart to MongoDB
+function autoSaveCart() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
-displayCartItems();
-updateCartCount();
-</script>
-
-// localStorage to mongoDB
-<script>
-document.querySelector('.checkout-btn').addEventListener('click', function() {
-  const cartData = JSON.stringify(cart);  // Get cart data from localStorage or directly from `cart` object
-  sendCartToBackend(cartData);
-});
-
-function sendCartToBackend(cartData) {
   fetch('./saveCart.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username: "<?php echo $username; ?>",  // Send username from session
-      cart: cartData,
-      totalPrice: calculateTotalPrice()  // Optional: calculate and send the total price
+      username: "<?php echo $_SESSION['username']; ?>",
+      cart,
+      totalPrice
     })
   })
   .then(response => response.json())
   .then(data => {
-    if (data.success) {
-      window.location.href = './CheckoutPage.php';  // Redirect to checkout page
-    } else {
-      alert('Failed to save cart');
+    if (!data.success) {
+      console.error('Failed to save cart:', data.message);
     }
   })
   .catch(error => {
@@ -422,9 +420,12 @@ function sendCartToBackend(cartData) {
   });
 }
 
-function calculateTotalPrice() {
-  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-}
+// Call autoSaveCart every 3 seconds
+setInterval(autoSaveCart, 3000);
+
+displayCartItems();
+updateCartCount();
 </script>
+
 
 </html>

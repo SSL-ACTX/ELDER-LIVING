@@ -475,7 +475,7 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
     const productName = button.dataset.productName;
     const productPrice = parseFloat(button.dataset.productPrice);
     const productImage = button.closest('.product-container')
-                               .querySelector('.product-image')?.src;
+                                 .querySelector('.product-image')?.src;
 
     if (!productId || !productName || !productPrice || !productImage) {
       console.error('Missing product data');
@@ -490,7 +490,8 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
       quantity: 1
     };
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartKey = getCartKey();
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     const existingItem = cart.find(item => item.id === productId);
 
     if (existingItem) {
@@ -499,7 +500,7 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
       cart.push(cartItem);
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(cartKey, JSON.stringify(cart));
     updateCartCount();
     updateCartDropdown();
     showModal();
@@ -507,14 +508,13 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
 });
 
 // add to buy button function to //
-// add to buy button function to //
 document.querySelectorAll('.buy-btn').forEach(button => {
   button.addEventListener('click', () => {
     const productId = button.dataset.productId;
     const productName = button.dataset.productName;
     const productPrice = parseFloat(button.dataset.productPrice);
     const productImage = button.closest('.product-container')
-                               .querySelector('.product-image')?.src;
+                                 .querySelector('.product-image')?.src;
 
     if (!productId || !productName || !productPrice || !productImage) {
       console.error('Missing product data');
@@ -528,10 +528,10 @@ document.querySelectorAll('.buy-btn').forEach(button => {
       image: productImage,
       quantity: 1
     };
-   
-    let cart = [cartItem];
-    localStorage.setItem('cart', JSON.stringify(cart));
-   
+
+    const cartKey = getCartKey();
+    localStorage.setItem(cartKey, JSON.stringify([cartItem]));
+
     window.location.href = '/html/CartPage.html';
   });
 });
@@ -539,28 +539,50 @@ document.querySelectorAll('.buy-btn').forEach(button => {
 // cart count function to
 // ina-update nito ang cart count
 // pero mag sh-show lang siya kapag may laman ang cart
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const totalUniqueItems = cart.length; 
-
-  const cartCountElement = document.querySelector('.cart-count');
-  cartCountElement.textContent = totalUniqueItems;
-  cartCountElement.style.display = totalUniqueItems > 0 ? 'flex' : 'none'; 
+// new counter -- >
+function getCartKey() {
+  const username = "<?php echo $_SESSION['username']; ?>";
+  return `cart_${username}`;
 }
+
+// Update the cart count for the current user
+function updateCartCount() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const totalUniqueItems = cart.length;
+  document.querySelector('.cart-count').textContent = totalUniqueItems;
+}
+
+function updateCartCount() {
+    const cartKey = getCartKey();
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    const totalUniqueItems = cart.length;
+
+    const cartCountElement = document.querySelector('.cart-count');
+    cartCountElement.textContent = totalUniqueItems;
+    cartCountElement.style.display = totalUniqueItems > 0 ? 'flex' : 'none';
+
+}
+// update cart count at page start
+document.addEventListener('DOMContentLoaded', updateCartCount);
+// new counter -- >
 
 // dropdown cart function
 // kapag hinover ko ang cart button
 // mag sh-show ang dropdown cart at
 // lalabas ang items na nasa cart
+
+// update the cart dropdown
 function updateCartDropdown() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
   const cartItemsContainer = document.querySelector('.cart-items');
-  const viewCartLink = document.querySelector('.cart-footer');  
-  cartItemsContainer.innerHTML = ''; 
+  const viewCartLink = document.querySelector('.cart-footer');
+  cartItemsContainer.innerHTML = '';
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = '<p class="empty-message">Your cart is empty.</p>';
-    viewCartLink.style.display = 'none'; 
+    viewCartLink.style.display = 'none';
   } else {
     const recentlyAddedText = document.createElement('p');
     recentlyAddedText.className = 'recently-added-text';
@@ -576,7 +598,7 @@ function updateCartDropdown() {
         <img src="${item.image || 'default-image-url'}" alt="${item.name || 'Unnamed Product'}" class="cart-item-image">
         <div class="cart-item-details">
           <span class="cart-item-name">${item.name || 'Unnamed Product'}</span>
-          <span class="cart-item-price">${formattedPrice}</span> 
+          <span class="cart-item-price">${formattedPrice}</span>
         </div>
       `;
       cartItemsContainer.appendChild(cartItemElement);
@@ -584,6 +606,9 @@ function updateCartDropdown() {
     viewCartLink.style.display = 'block';
   }
 }
+
+document.addEventListener('DOMContentLoaded', updateCartDropdown);
+
 
 // modal function to
 // modal function to

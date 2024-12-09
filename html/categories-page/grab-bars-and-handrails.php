@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+require '../../connection/connection.php';
+
+$username = $_SESSION['username'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -259,24 +268,50 @@ function CloseFunction() {
     }
 }
 
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const totalUniqueItems = cart.length;
-
-  const cartCountElement = document.querySelector('.cart-count');
-  cartCountElement.textContent = totalUniqueItems;
-  cartCountElement.style.display = totalUniqueItems > 0 ? 'flex' : 'none'; 
+// new counter -- >
+function getCartKey() {
+  const username = "<?php echo $_SESSION['username']; ?>";
+  return `cart_${username}`;
 }
 
+// Update the cart count for the current user
+function updateCartCount() {
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+  const totalUniqueItems = cart.length;
+  document.querySelector('.cart-count').textContent = totalUniqueItems;
+}
+
+function updateCartCount() {
+    const cartKey = getCartKey();
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    const totalUniqueItems = cart.length;
+
+    const cartCountElement = document.querySelector('.cart-count');
+    cartCountElement.textContent = totalUniqueItems;
+    cartCountElement.style.display = totalUniqueItems > 0 ? 'flex' : 'none';
+
+}
+// update cart count at page start
+document.addEventListener('DOMContentLoaded', updateCartCount);
+// new counter -- >
+
+// dropdown cart function
+// kapag hinover ko ang cart button
+// mag sh-show ang dropdown cart at
+// lalabas ang items na nasa cart
+
+// update the cart dropdown
 function updateCartDropdown() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartKey = getCartKey();
+  const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
   const cartItemsContainer = document.querySelector('.cart-items');
-  const viewCartLink = document.querySelector('.cart-footer');  
-  cartItemsContainer.innerHTML = ''; 
+  const viewCartLink = document.querySelector('.cart-footer');
+  cartItemsContainer.innerHTML = '';
 
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = '<p class="empty-message">Your cart is empty.</p>';
-    viewCartLink.style.display = 'none'; 
+    viewCartLink.style.display = 'none';
   } else {
     const recentlyAddedText = document.createElement('p');
     recentlyAddedText.className = 'recently-added-text';
@@ -292,7 +327,7 @@ function updateCartDropdown() {
         <img src="${item.image || 'default-image-url'}" alt="${item.name || 'Unnamed Product'}" class="cart-item-image">
         <div class="cart-item-details">
           <span class="cart-item-name">${item.name || 'Unnamed Product'}</span>
-          <span class="cart-item-price">${formattedPrice}</span> 
+          <span class="cart-item-price">${formattedPrice}</span>
         </div>
       `;
       cartItemsContainer.appendChild(cartItemElement);
@@ -300,6 +335,9 @@ function updateCartDropdown() {
     viewCartLink.style.display = 'block';
   }
 }
+
+document.addEventListener('DOMContentLoaded', updateCartDropdown);
+// end here
 
 window.addEventListener('load', () => {
   updateCartCount();
